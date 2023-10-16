@@ -5,11 +5,11 @@ export const callService = async (
   headers = null
 ) => {
   // eslint-disable-next-line no-undef
-  const token = auth?.getToken() ?? "";
+  const token = localStorage.getItem("token") || ""
   try {
     // eslint-disable-next-line no-undef
     const fetch = await $fetch(
-      !params?.urlFullPath ? config.BASE_API + endPointUrl : endPointUrl,
+      !params?.urlFullPath ? config.BASE_API_URL + endPointUrl : endPointUrl,
       {
         onRequest({ options }) {
           // Set the request headers
